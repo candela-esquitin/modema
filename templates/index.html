@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="hero">
+    <div class="overlay"></div>
+    <div class="contenido">
+        <h1 class="titulo">Soluciones industriales a tu medida</h1>
+        <h4 class="texto">Montaje, desarrollos y mantenimientos a nivel industrial</h4>
+        <button class="boton"><a href="{{ url_for('usuario') }}" class="text-decoration-none text-body">Conoce nuestros proyectos</a></button>
+    </div>
+</div>
+
+<div class="section1">
+    <h1 class="titulo-section">¿Que hacemos?</h1>
+    <div class="container">
+        <div class="bloque">
+            <div class="icon-wrapper">
+                <div class="circulo"></div>
+                <img src="{{ url_for('static', filename='images/settings.svg') }}" alt="" class="icon">
+            </div>
+            <p class="text-bloque texto">Deseamos que deje su problema en nuestras manos para que nosotros veamos la forma de resolverlos de la mejor y más redituable para ambas partes.</p>
+        </div>
+        <div class="bloque">
+            <div class="icon-wrapper">
+                <div class="circulo"></div>
+                <img src="{{ url_for('static', filename='images/people.svg') }}" alt="" class="icon">
+            </div>
+            <p class="text-bloque texto">Si es su deseo podemos trabajar en equipo junto a ustedes. </p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h1 class="titulo-section">Nosotros</h1>
+    <div class="container">
+        <div class="bloque-section2">
+            <h3 class="titulo-bloque">Montaje</h3>
+            <p class="texto-bloque2">En el montaje de equipos eléctricos y electrónicos contamos con experiencia en industrias químicas, alimenticias y de papel trabajando codo a codo con expertos e ingenieros de diferentes países y empresas de vanguardia.</p>
+        </div>
+        <div class="bloque-section2">
+            <h3 class="titulo-bloque">Desarrollo</h3>
+            <p class="texto-bloque2">Por el trabajo permanente en las industrias, desarrollamos diversos equipos como dosificadores químicos, sistemas de portones automáticos, automatismos de procesos, tableros eléctricos, sistemas de iluminación y seguridad, entre otros. Todos los trabajos incluyen, cuando corresponde, carpetas y planos eléctricos detallados.</p>
+        </div>
+        <div class="bloque-section2">
+            <h3 class="titulo-bloque">Mantenimiento</h3>
+            <p class="texto-bloque2">El personal de MODEMA cuenta con largos años de experiencia en el mantenimiento en diversas clases de industrias como químicas, alimenticias y papeleras en empresas de primer nivel contando con experiencia en búsqueda de fallas, mantenimiento preventivo y correctivo</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
