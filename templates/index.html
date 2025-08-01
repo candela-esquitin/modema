@@ -5,7 +5,7 @@
     <div class="contenido">
         <h1 class="titulo">Soluciones industriales a tu medida</h1>
         <h4 class="texto">Montaje, desarrollos y mantenimientos a nivel industrial</h4>
-        <button class="boton"><a href="{{ url_for('usuario') }}" class="text-decoration-none text-body">Conoce nuestros proyectos</a></button>
+        <button class="boton"><a href="{{ url_for('proyectos') }}" class="text-decoration-none text-body">Conoce nuestros proyectos</a></button>
     </div>
 </div>
 
@@ -44,6 +44,50 @@
             <h3 class="titulo-bloque">Mantenimiento</h3>
             <p class="texto-bloque2">El personal de MODEMA cuenta con largos años de experiencia en el mantenimiento en diversas clases de industrias como químicas, alimenticias y papeleras en empresas de primer nivel contando con experiencia en búsqueda de fallas, mantenimiento preventivo y correctivo</p>
         </div>
+    </div>
+</div>
+
+<div>
+    <h1 class="titulo-section">Proyectos destados</h1>
+    <div class="proyect-container">
+        {% for i in proyectos[:4] %}
+        <div class="col-12 col-md-4 col-lg-3 mb-5 d-flex justify-content-center align-items-center">
+            <div class="proyect-card w-100">
+                <div class="proyect-img-wrapper">
+                    <img src="{{ url_for('static', filename=i.imagen.lstrip('/')) }}"
+                        alt="{{ i.titulo }}"
+                        class="proyect-img img-fluid"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modal{{ i.id }}">
+                </div>
+                <div class="proyect-info">
+                    <h3 class="proyect-title">{{ i.titulo }}</h3>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="modal{{ i.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{ i.titulo }}</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{ url_for('static', filename=i.imagen.lstrip('/')) }}" alt="">
+                            <h4 class="modal-descrip">{{ i.descrip }}</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        {% endfor %}
+    </div>
+
+    <div class="boton-container">
+        <button class="boton boton-proyect"><a href="{{ url_for('proyectos') }}" class="text-decoration-none text-body">Ver Mas</a></button>
     </div>
 </div>
 
