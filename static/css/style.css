@@ -108,6 +108,60 @@ body {
     padding-right: 7px;
 }
 
+.titulo-footer{
+    font-size: 2rem !important;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.footer{
+    background-color: rgba(0, 0, 0, 0.221);
+}
+
+.contact{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+h5 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+.tel{
+    margin-top: 15px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+  }
+  td {
+    padding: 10px;
+    vertical-align: top;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  .submit-row {
+    text-align: center;
+  }
+
+.boton-form{
+    margin: 0;
+}
+
 .section1{
     margin-top: 25px;
 }
@@ -268,4 +322,10 @@ body {
 .proyect-container2{
     display: flex;
     max-width: 100% !important;
+}
+
+.modal-descrip {
+    font-size: 1.1rem;
+    font-weight: 200;
+    margin: 15px;
 }

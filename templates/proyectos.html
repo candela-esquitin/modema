@@ -27,7 +27,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="{{ url_for('static', filename=i.imagen.lstrip('/')) }}" alt="">
+                            <img class="proyect-img img-fluid" src="{{ url_for('static', filename=i.imagen.lstrip('/')) }}" alt="">
                             <h4 class="modal-descrip">{{ i.descrip }}</h4>
                         </div>
                         <div class="modal-footer">

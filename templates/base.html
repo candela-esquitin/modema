@@ -18,9 +18,59 @@
 
 
     {% block content %}{% endblock %}
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
     {% block footer %}
+    <div class="footer">
+        <h4 class="titulo-section titulo-footer">Contactanos</h4>
+        <div class="contact">
+            <div class="form">
+                <h5>Envianos un Mail</h5>
+                <form action="#" method="post">
+                    <table border="1">
+                        <tr>
+                            <td><label for="nombre">Nombre:</label></td>
+                            <td><input type="text" id="nombre" name="nombre" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="correo">Correo:</label></td>
+                            <td><input type="email" id="correo" name="correo" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="mensaje">Mensaje:</label></td>
+                            <td><textarea id="mensaje" name="mensaje" required></textarea></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="submit-row">
+                            <button type="submit" class="boton boton-form">Enviar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                
+            </div>
+    
+            <div class="div-tel">
+                <h5>Llamanos o escribinos</h5>
+                <p class="tel">+5493487323179 </p>
+                <p class="tel">+5493487679559 </p>
+                <p class="tel">+5493487511832 </p>
+            </div>
+    
+            <div class="social-media">
+                <h5>Seguinos</h5>
+                <ul>
+                    <li><img src="" alt=""></li>
+                    <li>@pppp</li>
+                </ul>
+                <ul>
+                    <li><img src="" alt=""></li>
+                    <li>@pppp</li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    </div>
     {% endblock %}
 </body>
 </html>
