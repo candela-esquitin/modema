@@ -31,6 +31,11 @@ body {
     background-color: #F9F9F9;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .navbar{
     background-color: #F9F9F9 !important;
 }
@@ -131,6 +136,38 @@ h5 {
 
 .tel{
     margin-top: 15px;
+}
+
+.social-media {
+    width: fit-content;
+    max-width: 300px;
+    font-family: Arial, sans-serif;
+}
+
+.social-media h5 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+}
+
+.social-media ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-media li {
+    display: inline;
+    font-size: 14px;
+}
+
+.social-media img {
+    width: 24px;
+    height: 24px;
 }
 
 table {
@@ -328,4 +365,68 @@ table {
     font-size: 1.1rem;
     font-weight: 200;
     margin: 15px;
+}
+
+.titulo-login{
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+
+.login-col-2{
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.141);
+    padding: 20px;
+}
+
+
+.form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+  }
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  input[type="file"] {
+    font-size: 0.9rem;
+  }
+.boton-agregar {
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1.1rem;
+    border-radius: 6px;
+}
+
+
+.titulo-agregar{
+    margin: 0;
+    font-size: 30px;
+    padding: 10px;
 }

@@ -1,0 +1,48 @@
+{% extends 'base.html'%}
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<div class="form-container">
+    <h2 class="titulo-section titulo-agregar">Agregar Proyecto</h2>
+    <form action="{{ url_for('agregar_proyecto') }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="titulo">Título *</label>
+            <input type="text" id="titulo" name="titulo" required />
+        </div>
+        
+        <div class="form-group">
+            <label for="img_principal">Imagen Principal *</label>
+            <input type="file" id="img_principal" name="img_principal" accept="image/*" required />
+        </div>
+        
+        <div class="form-group">
+            <label for="img_sec1">Imagen Secundaria 1 (opcional)</label>
+            <input type="file" id="img_sec1" name="img_sec1" accept="image/*" />
+        </div>
+        
+        <div class="form-group">
+            <label for="img_sec2">Imagen Secundaria 2 (opcional)</label>
+            <input type="file" id="img_sec2" name="img_sec2" accept="image/*" />
+        </div>
+        
+        <div class="form-group">
+            <label for="descripcion">Descripción *</label>
+            <textarea id="descripcion" name="descripcion" placeholder="Escribe una descripción..." required></textarea>
+        </div>
+        
+        <button class="boton boton-proyect boton-agregar" type="submit">Agregar Proyecto</button>
+    </form>
+</div>
+
+
+{% endblock %}

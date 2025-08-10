@@ -8,7 +8,7 @@
         <div class="col-12 col-md-4 col-lg-3 mb-5 d-flex justify-content-center align-items-center">
             <div class="proyect-card w-100">
                 <div class="proyect-img-wrapper">
-                    <img src="{{ url_for('static', filename=i.imagen.lstrip('/')) }}"
+                    <img src="{{ url_for('static', filename=i.img_principal.lstrip('/')) }}"
                         alt="{{ i.titulo }}"
                         class="proyect-img img-fluid"
                         data-bs-toggle="modal"
@@ -27,7 +27,13 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img class="proyect-img img-fluid" src="{{ url_for('static', filename=i.imagen.lstrip('/')) }}" alt="">
+                            <img class="proyect-img img-fluid" src="{{ url_for('static', filename=i.img_principal.lstrip('/')) }}" alt="">
+                            {% if i.img_sec1 and i.img_sec1 != 'none' %}
+                                <img class="proyect-img img-fluid" src="{{ url_for('static', filename=i.img_sec1.lstrip('/')) }}" alt="">
+                            {% endif %}
+                            {% if i.img_sec2 and i.img_sec2 != 'none' %}
+                                <img class="proyect-img img-fluid" src="{{ url_for('static', filename=i.img_sec2.lstrip('/')) }}" alt="">
+                            {% endif %}
                             <h4 class="modal-descrip">{{ i.descrip }}</h4>
                         </div>
                         <div class="modal-footer">

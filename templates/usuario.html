@@ -1,0 +1,93 @@
+{% extends 'base.html'%}
+{% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <!-- Usuario logueado -->
+    <div id="user-logeado" class="alert alert-success" role="alert">
+        {% if usuario %}
+        <p> Bienvenido {{ usuario.email }}! | <a href="{{ url_for('logout') }}">Cerrar sesión</a></p>
+        {% endif %}
+    </div>
+
+
+    <h1 class="titulo-section">Proyectos</h1>
+    <div class="boton-container">
+        <button class="boton boton-proyect"><a href="{{ url_for('agregar_proyecto')}}">Agregar</a></button>
+    </div>
+    <div class="container"> <!-- opcional, para mantener márgenes -->
+        <div class="row proyect-container2">
+            {% for i in proyectos %}
+            <div class="col-12 col-md-4 col-lg-3 mb-5 d-flex justify-content-center align-items-center">
+                <div class="proyect-card w-100">
+                    <div class="proyect-img-wrapper">
+                        <img src="{{ url_for('static', filename=i.img_principal.lstrip('/')) }}"
+                            alt="{{ i.titulo }}"
+                            class="proyect-img img-fluid"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modal{{ i.id }}">
+                    </div>
+                        <div class="proyect-info">
+                        <h3 class="proyect-title">{{ i.titulo }}</h3>
+                    </div>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Eliminar</button>
+                </div>
+                <!-- Modal Info-->
+                <div class="modal fade" id="modal{{ i.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ i.titulo }}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img class="proyect-img img-fluid" src="{{ url_for('static', filename=i.img_principal.lstrip('/')) }}" alt="">
+                                {% if i.img_sec1 and i.img_sec1 != 'none' %}
+                                    <img class="proyect-img img-fluid" src="{{ url_for('static', filename=i.img_sec1.lstrip('/')) }}" alt="">
+                                {% endif %}
+                                {% if i.img_sec2 and i.img_sec2 != 'none' %}
+                                    <img class="proyect-img img-fluid" src="{{ url_for('static', filename=i.img_sec2.lstrip('/')) }}" alt="">
+                                {% endif %}
+                                <h4 class="modal-descrip">{{ i.descrip }}</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Eliminar-->
+                <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="confirmDeleteLabel">Confirmar eliminación</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>¿Estás seguro que deseas eliminar este elemento?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <form action="{{ url_for('usuario', id=usuario.id) }}" method="post">
+                                    <input type="hidden" name="proyecto_id" value="{{ i.id }}">
+                                    <input type="hidden" name="accion" value="eliminar">
+                                    <button type="submit" class="btn btn-danger" id="btnConfirmDelete">Eliminar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
